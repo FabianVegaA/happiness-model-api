@@ -59,7 +59,7 @@ def predict():
     x_test = np.array([0.20868, 0.13995, 0.28443,
                       0.36453, 0.10731, 0.16681, 1.56726])
     
-    model = joblib.load('./models/best_model.pkl')
+    model = joblib.load('models/best_model.pkl')
     prediction = model.predict(x_test.reshape(1, -1))
     return jsonify({'prediction': list(prediction)})
 
@@ -67,7 +67,7 @@ def predict():
 @app.route('/calculate', methods=['GET', 'POST'])
 def calculate():
     
-    model = joblib.load('./models/best_model.pkl')
+    model = joblib.load('models/best_model.pkl')
     data_in = CountryData(request.form)
 
     context = {
